@@ -61,7 +61,8 @@ class _CategoriesPageState
                           child: AspectRatio(
                             aspectRatio: 2,
                             child: Card(
-                              elevation: 5,
+                              shadowColor: AppThemeLight().getTheme().accentColor,
+                              elevation: 10,
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(50))),

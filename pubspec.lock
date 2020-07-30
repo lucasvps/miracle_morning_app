@@ -155,6 +155,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.16.2"
+  curved_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: curved_navigation_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.3"
   dart_style:
     dependency: transitive
     description:
@@ -176,6 +183,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  eva_icons_flutter:
+    dependency: "direct main"
+    description:
+      name: eva_icons_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   file:
     dependency: transitive
     description:
@@ -190,6 +204,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.11"
+  fleva_icons:
+    dependency: "direct main"
+    description:
+      name: fleva_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   flutter:
     dependency: "direct main"
     description: flutter
