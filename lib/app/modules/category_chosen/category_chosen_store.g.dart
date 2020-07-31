@@ -28,7 +28,7 @@ mixin _$CategoryChosenStore on _CategoryChosenStoreBase, Store {
       ActionController(name: '_CategoryChosenStoreBase');
 
   @override
-  dynamic markAsDone(int id, String date, int status) {
+  dynamic markAsDone(int id, String date, dynamic status) {
     final _$actionInfo = _$_CategoryChosenStoreBaseActionController.startAction(
         name: '_CategoryChosenStoreBase.markAsDone');
     try {

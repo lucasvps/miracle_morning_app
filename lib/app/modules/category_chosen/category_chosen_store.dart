@@ -14,23 +14,16 @@ abstract class _CategoryChosenStoreBase with Store {
   _CategoryChosenStoreBase(this.repository, this.dateStatusRepository);
 
   @action
-  markAsDone(int id, String date, int status) {
+  markAsDone(int id, String date, status) {
     DateStatusModel model =
         DateStatusModel(categoryChosenId: id, date: date, status: status);
 
-    dateStatusRepository.markDateStatus(model).then((value){
+    dateStatusRepository.markDateStatus(model).then((value) {
       idDoneToday.clear();
       dateStatusRepository.ifTodayAlreadyMarked();
     });
-    
-    
   }
-
 
   @observable
   List<dynamic> idDoneToday = [];
-
-  
-
-
 }

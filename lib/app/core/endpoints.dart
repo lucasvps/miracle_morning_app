@@ -13,6 +13,8 @@ class ApiEndpoints {
 
   static const String CATEGORIES_CHOSEN = '/categories/chosen/byUser';
 
+  static const String CHOOSE_CATEGORY = '/categoriesChosen';
+
   static const String MARK_STATUS = '/dateStatus';
 
   static const String CONFIRM_TODAY_ALREADY_MARKED = '/dateStatus/chosen/byUser/1';

@@ -49,11 +49,23 @@ class _CategoryChosenPageState
                   ));
                 } else {
                   if (snapshot.data.toString() == '[]') {
-                    return Center(
-                        child: Text(
-                      'Você não possui registros anteriores!',
-                      style: TextStyle(fontSize: 20),
-                    ));
+                    return Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          AspectRatio(
+                              aspectRatio: 1.5,
+                              child: SvgPicture.asset(
+                                  'lib/app/assets/svg/void.svg')),
+                          Center(
+                              child: Text(
+                            'Você não está fazendo nenhum desafio! Vamos lá!',
+                            style: TextStyle(fontSize: 25),
+                          )),
+                        ],
+                      ),
+                    );
                   }
                   return ListView.builder(
                       itemCount: snapshot.data.length,
@@ -68,160 +80,208 @@ class _CategoryChosenPageState
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(50))),
                             color: Colors.white,
-                            child: Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            24, 5, 16, 2),
-                                        child: Text(
-                                          "Início : " +
-                                              formatDate(
-                                                      DateFormat("yyyy-MM-dd")
-                                                          .parse(
-                                                        list[index].beginDate,
-                                                      ),
-                                                      [dd, '/', mm, '/', yyyy])
-                                                  .toString(),
-                                          style: TextStyle(fontSize: 20),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              24, 5, 16, 2),
+                                          child: Text(
+                                            "Início : " +
+                                                formatDate(
+                                                    DateFormat("yyyy-MM-dd")
+                                                        .parse(
+                                                      list[index].beginDate,
+                                                    ),
+                                                    [
+                                                      dd,
+                                                      '/',
+                                                      mm,
+                                                      '/',
+                                                      yyyy
+                                                    ]).toString(),
+                                            style: TextStyle(fontSize: 20),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            24, 2, 16, 8),
-                                        child: Text(
-                                          "Final : " +
-                                              formatDate(
-                                                      DateFormat("yyyy-MM-dd")
-                                                          .parse(
-                                                        list[index].endDate,
-                                                      ),
-                                                      [dd, '/', mm, '/', yyyy])
-                                                  .toString(),
-                                          style: TextStyle(fontSize: 20),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              24, 2, 16, 8),
+                                          child: Text(
+                                            "Final : " +
+                                                formatDate(
+                                                    DateFormat("yyyy-MM-dd")
+                                                        .parse(
+                                                      list[index].endDate,
+                                                    ),
+                                                    [
+                                                      dd,
+                                                      '/',
+                                                      mm,
+                                                      '/',
+                                                      yyyy
+                                                    ]).toString(),
+                                            style: TextStyle(fontSize: 20),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            24, 0, 16, 2),
-                                        child: Text(
-                                          'Dias realizados : ' +
-                                              list[index].amountDone.toString(),
-                                          style: TextStyle(fontSize: 20),
-                                        ),
-                                      ),
-                                      Center(
-                                        child: !controller.store.idDoneToday
-                                                .contains(list[index].id)
-                                            ? Padding(
-                                                padding:
-                                                    const EdgeInsets.fromLTRB(
-                                                        24, 32, 16, 2),
-                                                child: Text(
-                                                  formatDate(
-                                                      DateFormat("yyyy-MM-dd")
-                                                          .parse(DateTime.now()
-                                                              .toString()),
-                                                      [
-                                                        dd,
-                                                        '/',
-                                                        mm,
-                                                        '/',
-                                                        yyyy
-                                                      ]).toString(),
-                                                  style:
-                                                      TextStyle(fontSize: 20),
-                                                ),
-                                              )
-                                            : Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: <Widget>[
-                                                  Text('Te vejo amanhã!'),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Icon(
-                                                    EvaIcons.sun,
-                                                    color: Colors.deepOrange,
-                                                  )
-                                                ],
-                                              ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Center(
+                                        Center(
                                           child: !controller.store.idDoneToday
                                                   .contains(list[index].id)
-                                              ? Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: <Widget>[
-                                                    GestureDetector(
-                                                      onTap: () {
-                                                        controller.store.markAsDone(
-                                                            list[index].id,
-                                                            formatDate(
-                                                                DateFormat("yyyy-MM-dd").parse(DateTime
-                                                                        .now()
-                                                                    .toString()),
-                                                                [
-                                                                  yyyy,
-                                                                  '/',
-                                                                  mm,
-                                                                  '/',
-                                                                  dd
-                                                                ]).toString(),
-                                                            1);
-                                                      },
-                                                      child: Icon(
-                                                        EvaIcons
-                                                            .checkmarkCircle2Outline,
-                                                        color: AppThemeLight()
-                                                            .getTheme()
-                                                            .primaryColor,
-                                                        size: 64,
-                                                      ),
-                                                    ),
-                                                    GestureDetector(
-                                                      onTap: () {
-                                                        controller.store.markAsDone(
-                                                            list[index].id,
-                                                            formatDate(
-                                                                DateFormat("yyyy-MM-dd").parse(DateTime
-                                                                        .now()
-                                                                    .toString()),
-                                                                [
-                                                                  yyyy,
-                                                                  '/',
-                                                                  mm,
-                                                                  '/',
-                                                                  dd
-                                                                ]).toString(),
-                                                            0);
-                                                      },
-                                                      child: Icon(
-                                                          EvaIcons
-                                                              .closeCircleOutline,
-                                                          color: Colors.red,
-                                                          size: 64),
-                                                    )
-                                                  ],
+                                              ? Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          24, 32, 16, 2),
+                                                  child: Text(
+                                                    formatDate(
+                                                        DateFormat("yyyy-MM-dd")
+                                                            .parse(DateTime
+                                                                    .now()
+                                                                .toString()),
+                                                        [
+                                                          dd,
+                                                          '/',
+                                                          mm,
+                                                          '/',
+                                                          yyyy
+                                                        ]).toString(),
+                                                    style:
+                                                        TextStyle(fontSize: 20),
+                                                  ),
                                                 )
-                                              : SizedBox(),
+                                              : Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      16.0),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: <Widget>[
+                                                      Expanded(
+                                                          child: Text(
+                                                        'Te vejo amanhã!',
+                                                        style: TextStyle(
+                                                            fontSize: 16),
+                                                      )),
+                                                      SizedBox(
+                                                        width: 5,
+                                                      ),
+                                                      Icon(
+                                                        EvaIcons.sun,
+                                                        color:
+                                                            Colors.deepOrange,
+                                                        size: 45,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
                                         ),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Center(
+                                            child:
+                                                !controller.store.idDoneToday
+                                                        .contains(
+                                                            list[index].id)
+                                                    ? Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: <Widget>[
+                                                          Column(
+                                                            children: <Widget>[
+                                                              GestureDetector(
+                                                                onTap: () {
+                                                                  controller.store.markAsDone(
+                                                                      list[index]
+                                                                          .id,
+                                                                      formatDate(
+                                                                          DateFormat("yyyy-MM-dd").parse(DateTime.now().toString()), [
+                                                                        yyyy,
+                                                                        '-',
+                                                                        mm,
+                                                                        '-',
+                                                                        dd
+                                                                      ]).toString(),
+                                                                      true);
+                                                                },
+                                                                child: Icon(
+                                                                  EvaIcons
+                                                                      .checkmarkCircle2Outline,
+                                                                  color: AppThemeLight()
+                                                                      .getTheme()
+                                                                      .primaryColor,
+                                                                  size: 64,
+                                                                ),
+                                                              ),
+                                                              Text('Fez hoje')
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            children: <Widget>[
+                                                              GestureDetector(
+                                                                onTap: () {
+                                                                  controller.store.markAsDone(
+                                                                      list[index]
+                                                                          .id,
+                                                                      formatDate(
+                                                                          DateFormat("yyyy-MM-dd").parse(DateTime.now().toString()), [
+                                                                        yyyy,
+                                                                        '-',
+                                                                        mm,
+                                                                        '-',
+                                                                        dd
+                                                                      ]).toString(),
+                                                                      false);
+                                                                },
+                                                                child: Icon(
+                                                                    EvaIcons
+                                                                        .closeCircleOutline,
+                                                                    color: Colors
+                                                                        .red,
+                                                                    size: 64),
+                                                              ),
+                                                              Text(
+                                                                  'Não fez hoje')
+                                                            ],
+                                                          )
+                                                        ],
+                                                      )
+                                                    : SizedBox(),
+                                          ),
+                                        ),
+                                        Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 12.0),
+                                            child: Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.3,
+                                              child: RaisedButton(
+                                                color: Colors.yellow,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                50))),
+                                                onPressed: () {
+                                                  //
+                                                },
+                                                child: Text('Ver Detalhes'),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: Hero(
-                                    tag: list[index].image,
+                                  Expanded(
                                     child: Column(
                                       children: <Widget>[
                                         Padding(
@@ -244,8 +304,8 @@ class _CategoryChosenPageState
                                       ],
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         );

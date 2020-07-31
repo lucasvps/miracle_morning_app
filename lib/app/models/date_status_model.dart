@@ -1,14 +1,14 @@
 class DateStatusModel {
   int categoryChosenId;
   String date;
-  int status;
+  bool status;
 
   DateStatusModel({this.categoryChosenId, this.date, this.status});
 
   DateStatusModel.fromJson(Map<String, dynamic> json) {
     categoryChosenId = json['chosenId'];
     date = json['date'];
-    status = json['status'];
+    json['status'] == 1 ? status = true : status = false;
   }
 
   Map<String, dynamic> toJson() {

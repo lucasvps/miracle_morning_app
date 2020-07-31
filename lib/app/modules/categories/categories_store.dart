@@ -9,4 +9,11 @@ abstract class _CategoriesStoreBase with Store {
   final CategoryRepository repository;
 
   _CategoriesStoreBase(this.repository);
+
+
+  @action
+  chooseCategory(idCat) async {
+    await repository.chooseCategory(idCat);
+  }
+
 }

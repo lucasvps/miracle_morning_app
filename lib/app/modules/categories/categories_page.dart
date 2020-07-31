@@ -1,9 +1,12 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
+import 'package:miracle_morning_app/app/core/widgets.dart/components.dart';
 import 'package:miracle_morning_app/app/modules/category_detail/category_detail_page.dart';
 import 'categories_controller.dart';
+import 'package:intl/intl.dart';
 
 class CategoriesPage extends StatefulWidget {
   final String title;
@@ -16,6 +19,11 @@ class CategoriesPage extends StatefulWidget {
 class _CategoriesPageState
     extends ModularState<CategoriesPage, CategoriesController> {
   //use 'controller' variable to access controller
+
+  var finalDate = formatDate(
+      DateFormat("yyyy-MM-dd")
+          .parse(DateTime.now().add(Duration(days: 30)).toString()),
+      [dd, '/', mm, '/', yyyy]).toString();
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +54,23 @@ class _CategoriesPageState
                   ));
                 } else {
                   if (snapshot.data.toString() == '[]') {
-                    return Center(
-                        child: Text(
-                      'Você não possui registros anteriores!',
-                      style: TextStyle(fontSize: 20),
-                    ));
+                    return Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          AspectRatio(
+                            aspectRatio: 1.5,
+                              child: SvgPicture.asset(
+                                  'lib/app/assets/svg/void.svg')),
+                          Center(
+                              child: Text(
+                            'Você já esta realizando o desafio de todos os hábitos! Mantenha o foco!',
+                            style: TextStyle(fontSize: 25),
+                          )),
+                        ],
+                      ),
+                    );
                   }
                   return ListView.builder(
                       itemCount: snapshot.data.length,
@@ -82,8 +102,8 @@ class _CategoriesPageState
                                       ),
                                       Center(
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 12.0),
+                                          padding:
+                                              const EdgeInsets.only(top: 12.0),
                                           child: Container(
                                             width: MediaQuery.of(context)
                                                     .size
@@ -94,9 +114,17 @@ class _CategoriesPageState
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.all(
-                                                          Radius.circular(
-                                                              50))),
-                                              onPressed: () {},
+                                                          Radius.circular(50))),
+                                              onPressed: () {
+                                                Components.startHabit(
+                                                    idCat: list[index].id,
+                                                    title: "Uhuuuuuu!!!",
+                                                    content:
+                                                        "É muito bom ver que você está se desafiando a mais um hábito do Milagre da Manhã! Serão 30 dias que irão mudar sua vida!\n\n A data final será $finalDate.",
+                                                    context: context,
+                                                    negative: "Cancelar",
+                                                    positive: "Iniciar");
+                                              },
                                               child: Text('Iniciar Hábito'),
                                             ),
                                           ),
@@ -104,8 +132,8 @@ class _CategoriesPageState
                                       ),
                                       Center(
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 12.0),
+                                          padding:
+                                              const EdgeInsets.only(top: 12.0),
                                           child: Container(
                                             width: MediaQuery.of(context)
                                                     .size
@@ -118,16 +146,15 @@ class _CategoriesPageState
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.all(
-                                                          Radius.circular(
-                                                              50))),
+                                                          Radius.circular(50))),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
                                                           CategoryDetailPage(
-                                                              model: list[
-                                                                  index])),
+                                                              model:
+                                                                  list[index])),
                                                 );
                                               },
                                               child: Text('Ver sobre'),
