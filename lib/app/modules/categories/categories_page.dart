@@ -58,104 +58,101 @@ class _CategoriesPageState
                         var list = snapshot.data;
                         return Padding(
                           padding: const EdgeInsets.all(16.0),
-                          child: AspectRatio(
-                            aspectRatio: 2,
-                            child: Card(
-                              shadowColor: AppThemeLight().getTheme().accentColor,
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(50))),
-                              color: Colors.white,
-                              child: Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              24, 16, 16, 16),
-                                          child: Text(
-                                            list[index].name,
-                                            style: TextStyle(fontSize: 20),
-                                          ),
+                          child: Card(
+                            shadowColor: AppThemeLight().getTheme().accentColor,
+                            elevation: 10,
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50))),
+                            color: Colors.white,
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            24, 16, 16, 16),
+                                        child: Text(
+                                          list[index].name,
+                                          style: TextStyle(fontSize: 20),
                                         ),
-                                        Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 12.0),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.3,
-                                              child: RaisedButton(
-                                                color: Colors.yellow,
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                50))),
-                                                onPressed: () {},
-                                                child: Text('Iniciar Hábito'),
-                                              ),
+                                      ),
+                                      Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 12.0),
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.3,
+                                            child: RaisedButton(
+                                              color: Colors.yellow,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              50))),
+                                              onPressed: () {},
+                                              child: Text('Iniciar Hábito'),
                                             ),
                                           ),
                                         ),
-                                        Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 12.0),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.3,
-                                              child: RaisedButton(
-                                                color: AppThemeLight()
-                                                    .getTheme()
-                                                    .primaryColor,
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                50))),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            CategoryDetailPage(
-                                                                model: list[
-                                                                    index])),
-                                                  );
-                                                },
-                                                child: Text('Ver sobre'),
-                                              ),
+                                      ),
+                                      Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 12.0),
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.3,
+                                            child: RaisedButton(
+                                              color: AppThemeLight()
+                                                  .getTheme()
+                                                  .primaryColor,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              50))),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          CategoryDetailPage(
+                                                              model: list[
+                                                                  index])),
+                                                );
+                                              },
+                                              child: Text('Ver sobre'),
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                  Expanded(
-                                    child: Hero(
-                                      tag: list[index].image,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(16.0),
-                                        child: AspectRatio(
-                                          aspectRatio: 1.15,
-                                          child: SvgPicture.asset(
-                                            list[index].image,
-                                          ),
+                                ),
+                                Expanded(
+                                  child: Hero(
+                                    tag: list[index].image,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: AspectRatio(
+                                        aspectRatio: 1.15,
+                                        child: SvgPicture.asset(
+                                          list[index].image,
                                         ),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         );

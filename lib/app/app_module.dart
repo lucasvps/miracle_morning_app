@@ -8,14 +8,21 @@ import 'package:flutter/material.dart';
 import 'package:miracle_morning_app/app/app_widget.dart';
 import 'package:miracle_morning_app/app/modules/home/home_module.dart';
 
+import 'core/repositories/category_repository.dart';
+import 'core/repositories/date_status_repository.dart';
+import 'modules/category_chosen/category_chosen_store.dart';
 import 'modules/login/login_module.dart';
 import 'modules/splash/splash_module.dart';
 
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
-        Bind((i) => AppController()),
+        Bind((i) => AppController(i.get())),
         Bind((i) => CategoryDetailController()),
+        Bind((i) => CategoryDetailController()),
+        Bind((i) => CategoryChosenStore(i.get(), i.get())),
+        Bind((i) => CategoryRepository()),
+        Bind((i) => DateStatusRepository()),
       ];
 
   @override

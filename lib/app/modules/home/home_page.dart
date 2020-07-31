@@ -1,11 +1,11 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:fleva_icons/fleva_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 import 'package:miracle_morning_app/app/modules/categories/categories_page.dart';
+import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_page.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeController> {
   //use 'controller' variable to access controller
 
-  final tabs = [CategoriesPage(), CategoriesPage(), CategoriesPage()];
+  final tabs = [CategoryChosenPage(), CategoriesPage(), CategoriesPage()];
 
   @override
   Widget build(BuildContext context) {

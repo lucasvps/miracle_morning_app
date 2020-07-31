@@ -1,15 +1,16 @@
 import 'package:mobx/mobx.dart';
 
+import 'modules/category_chosen/category_chosen_store.dart';
+
 part 'app_controller.g.dart';
 
 class AppController = _AppControllerBase with _$AppController;
 
 abstract class _AppControllerBase with Store {
-  @observable
-  int value = 0;
+  final CategoryChosenStore store;
 
-  @action
-  void increment() {
-    value++;
+  _AppControllerBase(this.store){
+    store.idDoneToday.clear();
+    store.dateStatusRepository.ifTodayAlreadyMarked();
   }
 }
