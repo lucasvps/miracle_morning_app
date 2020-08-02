@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:miracle_morning_app/app/core/stores/auth_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'splash_controller.dart';
 
@@ -17,15 +18,6 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
   @override
   void initState() {
     checkLoginStatus();
-
-    // Modular.get<AppController>().currentUser().then((value) {
-    //   if (value['email'] != null) {
-    //     Modular.to.pushReplacementNamed('/contacts');
-    //   } else {
-    //     Modular.to.pushReplacementNamed('/login');
-    //   }
-    // });
-
     super.initState();
   }
 
@@ -35,10 +27,14 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
     sharedPreferences = await SharedPreferences.getInstance();
     if (sharedPreferences.getString('token') != null) {
       Modular.to.pushReplacementNamed('/home');
+      Modular.get<AuthStore>()
+          .setUserEmail(sharedPreferences.getString('userEmail'));
+      Modular.get<AuthStore>()
+          .setUserName(sharedPreferences.getString('userName'));
     } else {
       Modular.to.pushReplacementNamed('/login');
     }
-    //Modular.to.pushReplacementNamed('/login');
+   
   }
 
   @override

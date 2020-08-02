@@ -9,8 +9,11 @@ class AppController = _AppControllerBase with _$AppController;
 abstract class _AppControllerBase with Store {
   final CategoryChosenStore store;
 
+  
+
   _AppControllerBase(this.store){
     store.idDoneToday.clear();
     store.dateStatusRepository.ifTodayAlreadyMarked();
+    
   }
 }

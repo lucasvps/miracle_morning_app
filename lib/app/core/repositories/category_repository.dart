@@ -30,7 +30,8 @@ class CategoryRepository {
 
       for (var item in value.data) {
         CategoryModel model = CategoryModel.fromJson(item);
-        if (!(idsChosen.contains(model.id))) categories.add(model);
+        //if (!(idsChosen.contains(model.id))) 
+        categories.add(model);
       }
 
       return categories;

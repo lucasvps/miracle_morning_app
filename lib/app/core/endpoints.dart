@@ -21,5 +21,7 @@ class ApiEndpoints {
 
   static const String DATE_STATUS_BY_CHOSEN = '/dateStatus/chosen/byUserAndId/';
 
+  static const String RANDOM_QUOTE = '/randomQuote';
+
   
 }

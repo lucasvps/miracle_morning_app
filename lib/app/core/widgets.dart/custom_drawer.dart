@@ -1,8 +1,11 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/stores/auth_store.dart';
+import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 
 class CustomDrawer extends StatefulWidget {
   CustomDrawer({Key key}) : super(key: key);
@@ -14,74 +17,56 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (context) {
-      return Drawer(
-          child: ListView(children: <Widget>[
-        UserAccountsDrawerHeader(
-          accountName: Text(
-            Modular.get<AuthStore>().userName,
-            style: GoogleFonts.pangolin(
-              fontSize: 18,
+    return SafeArea(
+      child: Observer(builder: (context) {
+        return Drawer(
+            child: ListView(children: <Widget>[
+          UserAccountsDrawerHeader(
+            decoration:
+                BoxDecoration(color: AppThemeLight().getTheme().primaryColor),
+            accountName: Text(
+              //"Oi",
+              Modular.get<AuthStore>().userName,
+              style: GoogleFonts.pangolin(
+                fontSize: 18,
+              ),
+            ),
+            accountEmail: Text(
+              //"Oi",
+              Modular.get<AuthStore>().userEmail,
+              style: GoogleFonts.yanoneKaffeesatz(
+                fontSize: 18,
+              ),
+            ),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.black,
+              backgroundImage:
+                  AssetImage('lib/app/assets/images/wallpaperegito.jpg'),
             ),
           ),
-          accountEmail: Text(
-            Modular.get<AuthStore>().userEmail,
-            style: GoogleFonts.yanoneKaffeesatz(
-              fontSize: 18,
-            ),
-          ),
-          currentAccountPicture: CircleAvatar(
-            backgroundColor: Colors.black,
-          ),
-        ),
-        customListTile(
-            icon: Icons.people,
-            title: 'Clientes',
-            subtitle: 'Buscar clientes por nome ou registrar novo cliente.',
-            pageTo: '/clients'),
-        customListTile(
-            icon: Icons.search,
-            title: 'Clientes',
-            subtitle: 'Buscar clientes por loja e por ano de última compra.',
-            pageTo: '/clientsByStore'),
-        customListTile(
-            icon: Icons.folder,
-            title: 'Registros',
-            subtitle: 'Todos os registros feitos.',
-            pageTo: '/registersDone'),
-        customListTile(
-            icon: Icons.build,
-            title: 'Produtos/Campanha',
-            subtitle: 'Ver e adicionar produtos/campanhas.',
-            pageTo: '/activesProduct'),
-        customListTile(
-            icon: Icons.print,
-            title: 'Relatórios',
-            subtitle: "Gerar Relatórios e PDF's.",
-            pageTo: '/reports'),
-        Modular.get<AuthStore>().isAdmin == 1
-            ? customListTile(
-                icon: Icons.person_add,
-                title: 'Vendedores',
-                subtitle: "Cadastrar e ver lista de vendedores.",
-                pageTo: '/users')
-            : SizedBox(),
-        Modular.get<AuthStore>().isAdmin == 1
-            ? customListTile(
-                icon: Icons.info,
-                title: 'Contatos por Vendedor',
-                subtitle: "Calendário e histórico de um vendedor.",
-                pageTo: '/contactsByUser')
-            : SizedBox(),
-        Modular.get<AuthStore>().isAdmin == 1
-            ? customListTile(
-                icon: Icons.schedule,
-                title: 'Agendar Contatos',
-                subtitle: "Agendar contatos para vendedores.",
-                pageTo: '/setContactToUser')
-            : SizedBox()
-      ]));
-    });
+          customListTile(
+              icon: EvaIcons.messageCircle,
+              title: 'Frase do dia',
+              subtitle: 'Descubra qual a sua frase do dia!',
+              pageTo: '/quote'),
+          customListTile(
+              icon: EvaIcons.bookOpen,
+              title: 'Afirmações',
+              subtitle: 'Afirmações para antes de dormir!',
+              pageTo: '/afirmations'),
+          customListTile(
+              icon: EvaIcons.folder,
+              title: 'Histórico',
+              subtitle: 'Veja seu histórico de hábitos!',
+              pageTo: '/registersDone'),
+          customListTile(
+              icon: EvaIcons.star,
+              title: 'Avaliação',
+              subtitle: 'Avalie o aplicativo e nos ajude a melhorar!',
+              pageTo: '/activesProduct'),
+        ]));
+      }),
+    );
   }
 
   Widget customListTile(

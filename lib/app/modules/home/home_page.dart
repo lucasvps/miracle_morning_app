@@ -3,9 +3,13 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:miracle_morning_app/app/core/stores/auth_store.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
+import 'package:miracle_morning_app/app/core/widgets.dart/custom_drawer.dart';
 import 'package:miracle_morning_app/app/modules/categories/categories_page.dart';
 import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_page.dart';
+import 'package:miracle_morning_app/app/modules/quote/quote_store.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,12 +23,34 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeController> {
   //use 'controller' variable to access controller
 
-  final tabs = [CategoryChosenPage(), CategoriesPage(), CategoriesPage()];
+  final tabs = [CategoryChosenPage(), CategoriesPage()];
+
+  SharedPreferences sharedPreferences;
+
+  checkLoginStatus() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    if (sharedPreferences.getString('token') != null) {
+      Modular.get<AuthStore>()
+          .setUserEmail(sharedPreferences.getString('userEmail'));
+      Modular.get<AuthStore>()
+          .setUserName(sharedPreferences.getString('userName'));
+    } else {
+      Modular.to.pushReplacementNamed('/login');
+    }
+  }
+
+  @override
+  void initState() {
+    checkLoginStatus();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return Scaffold(
+        drawer: CustomDrawer(),
         bottomNavigationBar: CurvedNavigationBar(
             buttonBackgroundColor: Colors.yellow,
             backgroundColor: AppThemeLight().getTheme().primaryColor,
@@ -33,12 +59,22 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               controller.store.currentIndex = index;
             },
             items: <Widget>[
-              Icon(EvaIcons.activity, color: Colors.black,),
+              Icon(
+                EvaIcons.activity,
+                color: Colors.black,
+              ),
               Icon(EvaIcons.list, color: Colors.black),
-              Icon(EvaIcons.person, color: Colors.black),
             ]),
         backgroundColor: Color(0xffb9d7d9),
         appBar: AppBar(
+          actions: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Modular.get<AuthStore>().logout();
+              },
+              child: Icon(EvaIcons.logOutOutline),
+            )
+          ],
           backgroundColor: Color(0xff50B5BA),
           title: Text('O milagre da manhã'),
           centerTitle: true,

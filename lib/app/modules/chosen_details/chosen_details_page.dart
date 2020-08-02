@@ -96,7 +96,7 @@ class _ChosenDetailsPageState
                                       padding: const EdgeInsets.all(32.0),
                                       child: Center(
                                           child: Text(
-                                        'Você não está fazendo nenhum desafio! Vamos lá!',
+                                        'Você ainda não tem um histórico de progresso. O melhor dia para começar é hoje!',
                                         style: TextStyle(fontSize: 25),
                                       )),
                                     );
@@ -195,7 +195,7 @@ class _ChosenDetailsPageState
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
                     "Início : " +
                         formatDate(
@@ -204,11 +204,11 @@ class _ChosenDetailsPageState
                             ),
                             [dd, '/', mm, '/', yyyy]).toString(),
                     style: GoogleFonts.yanoneKaffeesatz(
-                        fontSize: 18, color: Colors.black),
+                        fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
                     "Final : " +
                         formatDate(
@@ -217,7 +217,7 @@ class _ChosenDetailsPageState
                             ),
                             [dd, '/', mm, '/', yyyy]).toString(),
                     style: GoogleFonts.yanoneKaffeesatz(
-                        fontSize: 18, color: Colors.black),
+                        fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                 )
               ],

@@ -22,7 +22,7 @@ class DateStatusRepository {
 
     return await dio.post(url, data: dateStatusModel.toJson()).then((value) {
       print(value.data);
-      //Modular.to.pushNamedAndRemoveUntil('/home', ModalRoute.withName('/home'));
+      Modular.to.pushNamedAndRemoveUntil('/home', ModalRoute.withName('/home'));
     }).catchError((err) {
       print(err);
       return err;

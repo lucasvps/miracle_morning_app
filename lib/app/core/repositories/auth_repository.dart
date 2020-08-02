@@ -29,7 +29,7 @@ class AuthRepository implements IAuthRepository {
       iSharedLocalStorage.put('is_admin', value.data['is_admin']);
       iSharedLocalStorage.put('userName', value.data['name']);
       iSharedLocalStorage.put('userEmail', value.data['email']);
-      print(iSharedLocalStorage.get('token'));
+      
       
     }).catchError((err) {
       print('login error ' + err);
@@ -48,7 +48,7 @@ class AuthRepository implements IAuthRepository {
       prefs.clear();
       prefs.commit();
       Modular.to.pushNamedAndRemoveUntil(
-          '/login', ModalRoute.withName('/home'));
+          '/login', ModalRoute.withName('/login'));
     }).catchError((err) {
       print(err.toString() + 'ERRO AQUI UHUUU');
     });

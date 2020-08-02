@@ -1,6 +1,8 @@
+import 'package:miracle_morning_app/app/modules/afirmations/afirmations_module.dart';
 import 'package:miracle_morning_app/app/modules/categories/categories_module.dart';
 import 'package:miracle_morning_app/app/modules/category_detail/category_detail_controller.dart';
 import 'package:miracle_morning_app/app/modules/category_detail/category_detail_module.dart';
+import 'package:miracle_morning_app/app/modules/quote/quote_module.dart';
 
 import 'app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -37,6 +39,8 @@ class AppModule extends MainModule {
         Router('/home', module: HomeModule()),
         Router('/categories', module: CategoriesModule()),
         Router('/categoryDetail', module: CategoryDetailModule()),
+        Router('/afirmations', module: AfirmationsModule()),
+        Router('/quote', module: QuoteModule()),
       ];
 
   @override

@@ -103,7 +103,7 @@ class _CategoriesPageState
                                         ),
                                       ),
                                       Center(
-                                        child: Padding(
+                                        child: !controller.store.repository.idsChosen.contains(list[index].id) ? Padding(
                                           padding:
                                               const EdgeInsets.only(top: 12.0),
                                           child: Container(
@@ -135,7 +135,7 @@ class _CategoriesPageState
                                               ),
                                             ),
                                           ),
-                                        ),
+                                        ) : SizedBox(),
                                       ),
                                       Center(
                                         child: Padding(

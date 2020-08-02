@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 import 'package:miracle_morning_app/app/models/category_model.dart';
 import 'category_detail_controller.dart';
@@ -24,47 +25,67 @@ class _CategoryDetailPageState
     return Scaffold(
         appBar: AppBar(
           backgroundColor: AppThemeLight().getTheme().primaryColor,
-          title: Text(widget.model.name),
+          title: Text(
+            widget.model.name,
+            style: GoogleFonts.patrickHand(fontSize: 24),
+          ),
           centerTitle: true,
         ),
-        body: Column(
-          children: <Widget>[
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.4,
-              child: Stack(
-                children: <Widget>[
-                  ClipPath(
-                    clipper: CustomShape(),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      color: AppThemeLight().getTheme().primaryColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                //height: double.infinity,
+                child: Stack(
+                  children: <Widget>[
+                    ClipPath(
+                      clipper: CustomShape(),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        color: AppThemeLight().getTheme().primaryColor,
+                      ),
                     ),
-                  ),
-                  Center(
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.white),
-                            shape: BoxShape.circle,
-                            //image: DecorationImage(image: AssetImage(widget.model.image))
+                    Center(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Colors.white),
+                              shape: BoxShape.circle,
+                              //image: DecorationImage(image: AssetImage(widget.model.image))
+                            ),
+                            height: MediaQuery.of(context).size.height * 0.28,
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            child: Hero(
+                              tag: widget.model.image,
+                              child: SvgPicture.asset(widget.model.image),
+                            ),
                           ),
-                          height: MediaQuery.of(context).size.height * 0.28,
-                          width: MediaQuery.of(context).size.width * 0.35,
-                          child: Hero(
-                            tag: widget.model.image,
-                            child: SvgPicture.asset(widget.model.image),
-                          ),
-                        ),
-                        Text(widget.model.description, style: TextStyle(fontSize: 25),)
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50))),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Text(
+                                  widget.model.description,
+                                  style: GoogleFonts.patrickHand(fontSize: 24),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ));
   }
 }
