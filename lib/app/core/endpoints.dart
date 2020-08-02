@@ -19,5 +19,7 @@ class ApiEndpoints {
 
   static const String CONFIRM_TODAY_ALREADY_MARKED = '/dateStatus/chosen/byUser/1';
 
+  static const String DATE_STATUS_BY_CHOSEN = '/dateStatus/chosen/byUserAndId/';
+
   
 }

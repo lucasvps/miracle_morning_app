@@ -3,7 +3,9 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
+import 'package:miracle_morning_app/app/modules/chosen_details/chosen_details_page.dart';
 import 'category_chosen_controller.dart';
 import 'package:intl/intl.dart';
 
@@ -79,7 +81,7 @@ class _CategoryChosenPageState
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(50))),
-                            color: Colors.white,
+                            color: Colors.white.withOpacity(0.9),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
@@ -106,7 +108,8 @@ class _CategoryChosenPageState
                                                       '/',
                                                       yyyy
                                                     ]).toString(),
-                                            style: TextStyle(fontSize: 20),
+                                            style: GoogleFonts.patrickHand(
+                                                fontSize: 22),
                                           ),
                                         ),
                                         Padding(
@@ -126,7 +129,8 @@ class _CategoryChosenPageState
                                                       '/',
                                                       yyyy
                                                     ]).toString(),
-                                            style: TextStyle(fontSize: 20),
+                                            style: GoogleFonts.patrickHand(
+                                                fontSize: 22),
                                           ),
                                         ),
                                         Center(
@@ -150,31 +154,37 @@ class _CategoryChosenPageState
                                                           yyyy
                                                         ]).toString(),
                                                     style:
-                                                        TextStyle(fontSize: 20),
+                                                        GoogleFonts.montserrat(
+                                                            fontSize: 18),
                                                   ),
                                                 )
                                               : Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      16.0),
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .center,
                                                     children: <Widget>[
                                                       Expanded(
+                                                          flex: 0,
                                                           child: Text(
-                                                        'Te vejo amanhã!',
-                                                        style: TextStyle(
-                                                            fontSize: 16),
-                                                      )),
+                                                            'Te vejo amanhã!',
+                                                            style: GoogleFonts
+                                                                .yanoneKaffeesatz(
+                                                                    fontSize:
+                                                                        22),
+                                                          )),
                                                       SizedBox(
-                                                        width: 5,
+                                                        width: 4,
                                                       ),
-                                                      Icon(
-                                                        EvaIcons.sun,
-                                                        color:
-                                                            Colors.deepOrange,
-                                                        size: 45,
+                                                      Expanded(
+                                                        child: Icon(
+                                                          EvaIcons.sun,
+                                                          color:
+                                                              Colors.deepOrange,
+                                                          size: 45,
+                                                        ),
                                                       )
                                                     ],
                                                   ),
@@ -218,7 +228,13 @@ class _CategoryChosenPageState
                                                                   size: 64,
                                                                 ),
                                                               ),
-                                                              Text('Fez hoje')
+                                                              Text(
+                                                                'Fez hoje',
+                                                                style: GoogleFonts
+                                                                    .yanoneKaffeesatz(
+                                                                        fontSize:
+                                                                            16),
+                                                              )
                                                             ],
                                                           ),
                                                           Column(
@@ -246,7 +262,12 @@ class _CategoryChosenPageState
                                                                     size: 64),
                                                               ),
                                                               Text(
-                                                                  'Não fez hoje')
+                                                                'Não fez hoje',
+                                                                style: GoogleFonts
+                                                                    .yanoneKaffeesatz(
+                                                                        fontSize:
+                                                                            16),
+                                                              )
                                                             ],
                                                           )
                                                         ],
@@ -271,9 +292,22 @@ class _CategoryChosenPageState
                                                             Radius.circular(
                                                                 50))),
                                                 onPressed: () {
-                                                  //
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              ChosenDetailsPage(
+                                                                model:
+                                                                    list[index],
+                                                              )));
                                                 },
-                                                child: Text('Ver Detalhes'),
+                                                child: Text(
+                                                  'Ver Detalhes',
+                                                  style: GoogleFonts.lato(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 14),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -296,9 +330,12 @@ class _CategoryChosenPageState
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               24, 5, 16, 10),
-                                          child: Text(
-                                            list[index].name,
-                                            style: TextStyle(fontSize: 20),
+                                          child: Center(
+                                            child: Text(
+                                              list[index].name,
+                                              style: GoogleFonts.patrickHand(
+                                                  fontSize: 24),
+                                            ),
                                           ),
                                         ),
                                       ],

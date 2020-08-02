@@ -2,6 +2,7 @@ import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 import 'package:miracle_morning_app/app/core/widgets.dart/components.dart';
 import 'package:miracle_morning_app/app/modules/category_detail/category_detail_page.dart';
@@ -39,7 +40,7 @@ class _CategoriesPageState
                 );
                 break;
               case ConnectionState.none:
-                return Text('erro 1');
+                return Text('Sem conexão, tenta novamente mais tarde!');
                 break;
               case ConnectionState.done:
                 if (snapshot.hasError) {
@@ -49,7 +50,7 @@ class _CategoriesPageState
                 if (!snapshot.hasData) {
                   return Center(
                       child: Text(
-                    'Você não possui registros anteriores!',
+                    'Ocorreu um erro!',
                     style: TextStyle(fontSize: 20),
                   ));
                 } else {
@@ -60,7 +61,7 @@ class _CategoriesPageState
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           AspectRatio(
-                            aspectRatio: 1.5,
+                              aspectRatio: 1.5,
                               child: SvgPicture.asset(
                                   'lib/app/assets/svg/void.svg')),
                           Center(
@@ -84,7 +85,7 @@ class _CategoriesPageState
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(50))),
-                            color: Colors.white,
+                            color: Colors.white.withOpacity(0.9),
                             child: Row(
                               children: <Widget>[
                                 Expanded(
@@ -97,7 +98,8 @@ class _CategoriesPageState
                                             24, 16, 16, 16),
                                         child: Text(
                                           list[index].name,
-                                          style: TextStyle(fontSize: 20),
+                                          style: GoogleFonts.patrickHand(
+                                              fontSize: 24),
                                         ),
                                       ),
                                       Center(
@@ -125,7 +127,12 @@ class _CategoriesPageState
                                                     negative: "Cancelar",
                                                     positive: "Iniciar");
                                               },
-                                              child: Text('Iniciar Hábito'),
+                                              child: Text(
+                                                'Iniciar Hábito',
+                                                style: GoogleFonts.lato(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 14),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -157,7 +164,12 @@ class _CategoriesPageState
                                                                   list[index])),
                                                 );
                                               },
-                                              child: Text('Ver sobre'),
+                                              child: Text(
+                                                'Ver sobre',
+                                                style: GoogleFonts.lato(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 14),
+                                              ),
                                             ),
                                           ),
                                         ),

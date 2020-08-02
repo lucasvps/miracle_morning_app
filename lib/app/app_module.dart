@@ -11,6 +11,8 @@ import 'package:miracle_morning_app/app/modules/home/home_module.dart';
 import 'core/repositories/category_repository.dart';
 import 'core/repositories/date_status_repository.dart';
 import 'modules/category_chosen/category_chosen_store.dart';
+import 'modules/chosen_details/chosen_details_controller.dart';
+import 'modules/chosen_details/chosen_details_store.dart';
 import 'modules/login/login_module.dart';
 import 'modules/splash/splash_module.dart';
 
@@ -22,6 +24,9 @@ class AppModule extends MainModule {
         Bind((i) => CategoryDetailController()),
         Bind((i) => CategoryChosenStore(i.get(), i.get())),
         Bind((i) => CategoryRepository()),
+        Bind((i) => DateStatusRepository()),
+        Bind((i) => ChosenDetailsController(i.get())),
+        Bind((i) => ChosenDetailsStore(i.get())),
         Bind((i) => DateStatusRepository()),
       ];
 

@@ -1,4 +1,5 @@
 import 'package:date_format/date_format.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:miracle_morning_app/app/core/custom_dio.dart';
 import 'package:miracle_morning_app/app/core/endpoints.dart';
@@ -13,7 +14,8 @@ class CategoryRepository {
       [yyyy, '-', mm, '-', dd]).toString();
 
   var finalDate = formatDate(
-      DateFormat("yyyy-MM-dd").parse(DateTime.now().add(Duration(days: 30)).toString()),
+      DateFormat("yyyy-MM-dd")
+          .parse(DateTime.now().add(Duration(days: 30)).toString()),
       [yyyy, '-', mm, '-', dd]).toString();
 
   List<dynamic> idsChosen = [];
@@ -66,7 +68,7 @@ class CategoryRepository {
     String url = ApiEndpoints.MAIN_URL + ApiEndpoints.CHOOSE_CATEGORY;
 
     Map<String, dynamic> model = Map<String, dynamic>();
-    model['begin_date'] =  today;
+    model['begin_date'] = today;
     model['end_date'] = finalDate;
     model['category_id'] = catId;
 
@@ -74,7 +76,7 @@ class CategoryRepository {
 
     return await dio.post(url, data: model).then((value) {
       Modular.get<HomeStore>().currentIndex = 0;
-      Modular.to.pushNamed('/home');
+      Modular.to.pushNamedAndRemoveUntil('/home', ModalRoute.withName('/home'));
     }).catchError((err) {
       return err;
     });
