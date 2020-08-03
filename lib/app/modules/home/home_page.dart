@@ -1,14 +1,15 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:miracle_morning_app/app/core/stores/auth_store.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 import 'package:miracle_morning_app/app/core/widgets.dart/custom_drawer.dart';
 import 'package:miracle_morning_app/app/modules/categories/categories_page.dart';
+import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_controller.dart';
 import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_page.dart';
-import 'package:miracle_morning_app/app/modules/quote/quote_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home_controller.dart';
 
@@ -22,6 +23,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
   //use 'controller' variable to access controller
+
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   final tabs = [CategoryChosenPage(), CategoriesPage()];
 
@@ -71,6 +75,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             GestureDetector(
               onTap: () {
                 Modular.get<AuthStore>().logout();
+                //Modular.get<CategoryChosenController>().localNotification.pushNotification();
               },
               child: Icon(EvaIcons.logOutOutline),
             )

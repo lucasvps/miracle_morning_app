@@ -43,7 +43,7 @@ class CategoryRepository {
   Future<List<CategoryChosenModel>> getCategoriesChosenActive() async {
     String url = ApiEndpoints.MAIN_URL + ApiEndpoints.CATEGORIES_CHOSEN;
 
-    //print(url);
+    print(idsChosen);
 
     var dio = CustomDio.withAuthentication().instance;
 
@@ -76,6 +76,7 @@ class CategoryRepository {
     var dio = CustomDio.withAuthentication().instance;
 
     return await dio.post(url, data: model).then((value) {
+      print(value.data);
       Modular.get<HomeStore>().currentIndex = 0;
       Modular.to.pushNamedAndRemoveUntil('/home', ModalRoute.withName('/home'));
     }).catchError((err) {

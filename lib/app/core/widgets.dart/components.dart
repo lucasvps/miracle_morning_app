@@ -51,4 +51,24 @@ class Components {
         });
   }
 
+  static onLoading(context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Center(
+          child: Dialog(
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                new CircularProgressIndicator(),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
 }

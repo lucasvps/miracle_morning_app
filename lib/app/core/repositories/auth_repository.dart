@@ -24,13 +24,11 @@ class AuthRepository implements IAuthRepository {
     return await dio
         .post(url, data: userModel.toJsonLogin())
         .then((value) async {
-          print(value.data);
+      print(value.data);
       iSharedLocalStorage.put('token', value.data['token']);
       iSharedLocalStorage.put('is_admin', value.data['is_admin']);
       iSharedLocalStorage.put('userName', value.data['name']);
       iSharedLocalStorage.put('userEmail', value.data['email']);
-      
-      
     }).catchError((err) {
       print('login error ' + err);
       return err;
@@ -47,8 +45,9 @@ class AuthRepository implements IAuthRepository {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.clear();
       prefs.commit();
-      Modular.to.pushNamedAndRemoveUntil(
-          '/login', ModalRoute.withName('/login'));
+      print(prefs.getString('token'));
+      Modular.to
+          .pushNamedAndRemoveUntil('/login', ModalRoute.withName('/login'));
     }).catchError((err) {
       print(err.toString() + 'ERRO AQUI UHUUU');
     });
@@ -82,5 +81,21 @@ class AuthRepository implements IAuthRepository {
     //   iSharedLocalStorage.put('token', value.data['token']);
     //   print('novo token : ' + value.data['token']);
     // });
+  }
+
+  @override
+  Future register(UserModel userModel) async {
+    String url = ApiEndpoints.MAIN_URL + ApiEndpoints.REGISTER;
+
+    var dio = CustomDio.withAuthentication().instance;
+
+    return await dio.post(url, data: userModel.toJson()).then((value) {
+      iSharedLocalStorage.put('token', value.data['token']);
+      iSharedLocalStorage.put('is_admin', value.data['is_admin']);
+      iSharedLocalStorage.put('userName', value.data['name']);
+      iSharedLocalStorage.put('userEmail', value.data['email']);
+    }).catchError((err) {
+      return err;
+    });
   }
 }

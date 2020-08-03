@@ -5,6 +5,8 @@ class ApiEndpoints {
 
   static const String LOGIN_URL = '/login';
 
+  static const String REGISTER = '/users';
+
   static const String LOGOUT_URL = '/logout';
 
   static const String CURRENT_USER_INFO = '/currentUser/info';

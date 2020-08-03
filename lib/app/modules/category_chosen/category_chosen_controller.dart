@@ -1,3 +1,4 @@
+import 'package:miracle_morning_app/app/core/interfaces/local_notification_interface.dart';
 import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_store.dart';
 import 'package:mobx/mobx.dart';
 
@@ -8,6 +9,7 @@ class CategoryChosenController = _CategoryChosenControllerBase
 
 abstract class _CategoryChosenControllerBase with Store {
   final CategoryChosenStore store;
+  
 
   _CategoryChosenControllerBase(this.store){
     store.dateStatusRepository.ifTodayAlreadyMarked();

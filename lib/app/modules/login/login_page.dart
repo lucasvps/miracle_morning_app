@@ -106,14 +106,14 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                   password: controller.loginStore.password);
 
                               controller.login(userLogin).then((value) {
-                                _onLoading();
+                                Components.onLoading(context);
                                 Future.delayed(new Duration(seconds: 3), () {})
                                     .then((value) {
                                   Navigator.pop(context);
                                   Modular.to.pushReplacementNamed('/home');
                                 });
                               }).catchError((err) {
-                                _onLoading();
+                                Components.onLoading(context);
                                 Future.delayed(new Duration(seconds: 2), () {})
                                     .then((value) {
                                   Navigator.pop(context);
@@ -134,30 +134,34 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                       ),
                     ),
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: (){
+                      Modular.to.pushNamed('/register');
+                    },
+                    child: Card(
+                      shadowColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(60))),
+                      elevation: 5,
+                      child: Center(
+                          child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                            'Novo aqui ? Faça seu registro rapidamente!',
+                            style: GoogleFonts.lato(
+                                fontSize: 18,
+                                color:
+                                    AppThemeLight().getTheme().primaryColor)),
+                      )),
+                    ),
+                  ),
                 )
               ],
             ),
           );
         }));
-  }
-
-  void _onLoading() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return Center(
-          child: Dialog(
-            child: new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                new CircularProgressIndicator(),
-              ],
-            ),
-          ),
-        );
-      },
-    );
   }
 }

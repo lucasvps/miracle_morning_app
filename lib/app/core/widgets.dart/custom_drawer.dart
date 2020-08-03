@@ -63,7 +63,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               icon: EvaIcons.star,
               title: 'Avaliação',
               subtitle: 'Avalie o aplicativo e nos ajude a melhorar!',
-              pageTo: '/activesProduct'),
+              pageTo: '/slides'),
         ]));
       }),
     );
