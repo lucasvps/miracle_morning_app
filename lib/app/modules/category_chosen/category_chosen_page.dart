@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
+import 'package:miracle_morning_app/app/core/widgets.dart/components.dart';
 import 'package:miracle_morning_app/app/modules/chosen_details/chosen_details_page.dart';
 import 'category_chosen_controller.dart';
 import 'package:intl/intl.dart';
@@ -21,6 +22,10 @@ class CategoryChosenPage extends StatefulWidget {
 class _CategoryChosenPageState
     extends ModularState<CategoryChosenPage, CategoryChosenController> {
   //use 'controller' variable to access controller
+
+  var today = formatDate(
+      DateFormat("yyyy-MM-dd").parse(DateTime.now().toString()),
+      [yyyy, '-', mm, '-', dd]).toString();
 
   @override
   Widget build(BuildContext context) {
@@ -219,6 +224,21 @@ class _CategoryChosenPageState
                                                                         dd
                                                                       ]).toString(),
                                                                       true);
+
+                                                                  Future.delayed(Duration(
+                                                                          seconds:
+                                                                              1))
+                                                                      .then(
+                                                                          (value) {
+                                                                    if (today ==
+                                                                        list[index]
+                                                                            .endDate) {
+                                                                      Components.alert(
+                                                                          context,
+                                                                          'PARABÉNS!',
+                                                                          "Hoje foi o último dia do seu desafio de ${list[index].name}! Espero que tenha sido uma jornada valiosa, e espero te ver mais vezes aqui!");
+                                                                    }
+                                                                  });
                                                                 },
                                                                 child: Icon(
                                                                   EvaIcons
@@ -254,6 +274,21 @@ class _CategoryChosenPageState
                                                                         dd
                                                                       ]).toString(),
                                                                       false);
+
+                                                                  Future.delayed(Duration(
+                                                                          seconds:
+                                                                              1))
+                                                                      .then(
+                                                                          (value) {
+                                                                    if (today ==
+                                                                        list[index]
+                                                                            .endDate) {
+                                                                      Components.alert(
+                                                                          context,
+                                                                          'PARABÉNS!',
+                                                                          "Hoje foi o último dia do seu desafio de ${list[index].name}! Espero que tenha sido uma jornada valiosa, e espero te ver mais vezes aqui!");
+                                                                    }
+                                                                  });
                                                                 },
                                                                 child: Icon(
                                                                     EvaIcons

@@ -1,11 +1,9 @@
 import 'package:miracle_morning_app/app/core/interfaces/auth_repository_interface.dart';
-import 'package:miracle_morning_app/app/core/interfaces/local_notification_interface.dart';
 import 'package:miracle_morning_app/app/core/interfaces/shared_local_storage_interface.dart';
 import 'package:miracle_morning_app/app/core/repositories/auth_repository.dart';
 import 'package:miracle_morning_app/app/core/repositories/category_repository.dart';
 import 'package:miracle_morning_app/app/core/repositories/date_status_repository.dart';
 import 'package:miracle_morning_app/app/core/repositories/quote_repository.dart';
-import 'package:miracle_morning_app/app/core/services/local_notification_service.dart';
 import 'package:miracle_morning_app/app/core/services/shared_local_storage_service.dart';
 import 'package:miracle_morning_app/app/core/stores/auth_store.dart';
 import 'package:miracle_morning_app/app/modules/categories/categories_controller.dart';

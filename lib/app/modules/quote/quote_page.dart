@@ -77,7 +77,7 @@ class _QuotePageState extends ModularState<QuotePage, QuoteController> {
                           borderRadius: BorderRadius.all(Radius.circular(50))),
                       onPressed: controller.store.adManager.isOdd
                           ? () {
-                            // TODO : RODAR ANUNCIO AQUI E .THEN()
+                            //!TODO : RODAR ANUNCIO AQUI E .THEN()
                               controller.store.repository
                                   .randomQuote()
                                   .then((value) async {

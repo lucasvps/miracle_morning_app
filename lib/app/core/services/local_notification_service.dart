@@ -9,7 +9,7 @@ class LocalNotificationService implements ILocalNotification {
 
   @override
   Future pushNotification() async {
-    print('works');
+    //print('works');
     var time = Time(8, 0, 0);
     // var scheduledNotificationDateTime =
     //     DateTime.now().add(Duration(seconds: 10));
@@ -18,7 +18,7 @@ class LocalNotificationService implements ILocalNotification {
       'alarm_notif',
       'alarm_notif',
       'Channel for Alarm notification',
-      icon: 'wallpaperegito',
+      icon: 'rocket',
       //sound: RawResourceAndroidNotificationSound('a_long_cold_sting'),
       largeIcon: DrawableResourceAndroidBitmap('rocket'),
     );

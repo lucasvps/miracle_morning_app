@@ -1,15 +1,15 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 import 'package:miracle_morning_app/app/models/category_chosen_model.dart';
-import 'package:miracle_morning_app/app/models/date_status_model.dart';
 import 'package:miracle_morning_app/app/modules/category_detail/category_detail_page.dart';
 import 'chosen_details_controller.dart';
 import 'package:intl/intl.dart';
+
+import 'chosen_details_store.dart';
 
 class ChosenDetailsPage extends StatefulWidget {
   final String title;
@@ -28,6 +28,7 @@ class _ChosenDetailsPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffb9d7d9),
       appBar: AppBar(
         backgroundColor: AppThemeLight().getTheme().primaryColor,
         title: Text(
@@ -104,6 +105,8 @@ class _ChosenDetailsPageState
                                   return Column(
                                     //mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -111,6 +114,30 @@ class _ChosenDetailsPageState
                                           "Seu progresso até aqui :",
                                           style: GoogleFonts.yanoneKaffeesatz(
                                               fontSize: 32,
+                                              color: Colors.black),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Quantidade Dias realizados : " +
+                                              Modular.get<ChosenDetailsStore>()
+                                                  .totalDone
+                                                  .toString(),
+                                          style: GoogleFonts.patrickHand(
+                                              fontSize: 20,
+                                              color: Colors.black),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Quantidade Dias não realizados : " +
+                                              Modular.get<ChosenDetailsStore>()
+                                                  .totalLost
+                                                  .toString(),
+                                          style: GoogleFonts.patrickHand(
+                                              fontSize: 20,
                                               color: Colors.black),
                                         ),
                                       ),
@@ -204,7 +231,9 @@ class _ChosenDetailsPageState
                             ),
                             [dd, '/', mm, '/', yyyy]).toString(),
                     style: GoogleFonts.yanoneKaffeesatz(
-                        fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
@@ -217,7 +246,9 @@ class _ChosenDetailsPageState
                             ),
                             [dd, '/', mm, '/', yyyy]).toString(),
                     style: GoogleFonts.yanoneKaffeesatz(
-                        fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                 )
               ],

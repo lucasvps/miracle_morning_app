@@ -2,6 +2,7 @@ import 'package:miracle_morning_app/app/modules/afirmations/afirmations_module.d
 import 'package:miracle_morning_app/app/modules/categories/categories_module.dart';
 import 'package:miracle_morning_app/app/modules/category_detail/category_detail_controller.dart';
 import 'package:miracle_morning_app/app/modules/category_detail/category_detail_module.dart';
+import 'package:miracle_morning_app/app/modules/chosen_done/chosen_done_module.dart';
 import 'package:miracle_morning_app/app/modules/intro_slider/intro_slider_module.dart';
 import 'package:miracle_morning_app/app/modules/quote/quote_module.dart';
 import 'package:miracle_morning_app/app/modules/register/register_module.dart';
@@ -45,6 +46,7 @@ class AppModule extends MainModule {
         Router('/quote', module: QuoteModule()),
         Router('/register', module: RegisterModule()),
         Router('/slides', module: IntroSliderModule()),
+        Router('/historic', module: ChosenDoneModule()),
       ];
 
   @override

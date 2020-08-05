@@ -65,6 +65,28 @@ class CategoryRepository {
     });
   }
 
+  Future<List<CategoryChosenModel>> getCategoriesChosenDone() async {
+    String url = ApiEndpoints.MAIN_URL + ApiEndpoints.CATEGORIES_CHOSEN_DONE;
+
+
+    var dio = CustomDio.withAuthentication().instance;
+
+    return await dio.get(url).then((value) {
+
+
+      List<CategoryChosenModel> categories = [];
+
+      for (var item in value.data) {
+        CategoryChosenModel model = CategoryChosenModel.fromJson(item);
+        categories.add(model);
+      }
+
+      return categories;
+    }).catchError((err) {
+      return err;
+    });
+  }
+
   Future chooseCategory(catId) async {
     String url = ApiEndpoints.MAIN_URL + ApiEndpoints.CHOOSE_CATEGORY;
 

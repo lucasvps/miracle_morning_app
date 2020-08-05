@@ -19,15 +19,18 @@ class _IntroSliderPageState
   //use 'controller' variable to access controller
 
   List<Slide> slides = new List();
+  
 
   @override
   void initState() {
+    
     super.initState();
     slides.add(
       new Slide(
         maxLineTitle: 3,
-        heightImage: 330,
+        heightImage: 250,
         widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 20),
         title: "O que é o milagre da manhã?",
         styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
         description:
@@ -39,8 +42,9 @@ class _IntroSliderPageState
     slides.add(
       new Slide(
         maxLineTitle: 3,
-        heightImage: 330,
+        heightImage: 250,
         widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 20),
         title: "E como isso funciona na prática?",
         styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
         description:
@@ -52,8 +56,9 @@ class _IntroSliderPageState
     slides.add(
       new Slide(
         maxLineTitle: 3,
-        heightImage: 330,
+        heightImage: 250,
         widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 20),
         title: "E quais os benefícios?",
         styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
         description:
@@ -62,7 +67,24 @@ class _IntroSliderPageState
         backgroundColor: Color(0xff50B5BA),
       ),
     );
+
+    slides.add(
+      new Slide(
+        maxLineTitle: 3,
+        heightImage: 250,
+        widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 20),
+        title: "Lembre-se!",
+        styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
+        description:
+            "Sua vida poderá ser e será melhor, mas somente depois que você investir tempo todos os dias para transformar-se na pessoa que precisa ser para aperfeiçoar sua vida. É exatamente o que esses próximos trinta dias de sua vida podem ser — um novo começo e um novo você.",
+        pathImage: "lib/app/assets/images/time.png",
+        backgroundColor: Color(0xff50B5BA),
+      ),
+    );
   }
+
+   
 
   @override
   Widget build(BuildContext context) {

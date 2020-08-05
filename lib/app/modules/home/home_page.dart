@@ -8,7 +8,6 @@ import 'package:miracle_morning_app/app/core/stores/auth_store.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 import 'package:miracle_morning_app/app/core/widgets.dart/custom_drawer.dart';
 import 'package:miracle_morning_app/app/modules/categories/categories_page.dart';
-import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_controller.dart';
 import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home_controller.dart';
@@ -74,6 +73,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           actions: <Widget>[
             GestureDetector(
               onTap: () {
+                
                 Modular.get<AuthStore>().logout();
                 //Modular.get<CategoryChosenController>().localNotification.pushNotification();
               },

@@ -1,6 +1,5 @@
 import 'intro_slider_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:dio/dio.dart';
 import 'intro_slider_page.dart';
 
 class IntroSliderModule extends ChildModule {

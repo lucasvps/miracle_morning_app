@@ -1,7 +1,5 @@
-import 'package:miracle_morning_app/app/core/interfaces/local_notification_interface.dart';
 import 'package:miracle_morning_app/app/core/repositories/category_repository.dart';
 import 'package:miracle_morning_app/app/core/repositories/date_status_repository.dart';
-import 'package:miracle_morning_app/app/core/services/local_notification_service.dart';
 import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_store.dart';
 import 'package:miracle_morning_app/app/modules/chosen_details/chosen_details_controller.dart';
 import 'package:miracle_morning_app/app/modules/chosen_details/chosen_details_store.dart';

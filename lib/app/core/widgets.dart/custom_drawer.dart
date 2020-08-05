@@ -2,7 +2,6 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/stores/auth_store.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
@@ -41,7 +40,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.black,
               backgroundImage:
-                  AssetImage('lib/app/assets/images/wallpaperegito.jpg'),
+                  AssetImage('lib/app/assets/images/rocket.png'),
             ),
           ),
           customListTile(
@@ -58,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               icon: EvaIcons.folder,
               title: 'Histórico',
               subtitle: 'Veja seu histórico de hábitos!',
-              pageTo: '/registersDone'),
+              pageTo: '/historic'),
           customListTile(
               icon: EvaIcons.star,
               title: 'Avaliação',

@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miracle_morning_app/app/core/themes/light_theme.dart';
 import 'package:miracle_morning_app/app/core/widgets.dart/components.dart';
 import 'package:miracle_morning_app/app/models/user_model.dart';
-import 'package:miracle_morning_app/app/modules/category_chosen/category_chosen_controller.dart';
 import 'register_controller.dart';
 
 class RegisterPage extends StatefulWidget {
