@@ -43,6 +43,8 @@ class CategoryRepository {
   Future<List<CategoryChosenModel>> getCategoriesChosenActive() async {
     String url = ApiEndpoints.MAIN_URL + ApiEndpoints.CATEGORIES_CHOSEN;
 
+    print(url);
+
     print(idsChosen);
 
     var dio = CustomDio.withAuthentication().instance;
@@ -61,6 +63,7 @@ class CategoryRepository {
       //print(idsChosen);
       return categories;
     }).catchError((err) {
+      print('errooo : ' + err.toString());
       return err;
     });
   }

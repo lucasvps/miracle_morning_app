@@ -16,6 +16,10 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
+
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Observer(builder: (context) {
         return Drawer(
@@ -62,7 +66,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               icon: EvaIcons.star,
               title: 'Avaliação',
               subtitle: 'Avalie o aplicativo e nos ajude a melhorar!',
-              pageTo: '/slides'),
+              pageTo: '/slides/$width/$height'),
         ]));
       }),
     );

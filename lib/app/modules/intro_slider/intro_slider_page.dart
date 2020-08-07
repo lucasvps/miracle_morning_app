@@ -7,7 +7,9 @@ import 'intro_slider_controller.dart';
 
 class IntroSliderPage extends StatefulWidget {
   final String title;
-  const IntroSliderPage({Key key, this.title = "IntroSlider"})
+  final width;
+  final height;
+  const IntroSliderPage({Key key, this.title = "IntroSlider", this.width, this.height})
       : super(key: key);
 
   @override
@@ -28,9 +30,9 @@ class _IntroSliderPageState
     slides.add(
       new Slide(
         maxLineTitle: 3,
-        heightImage: 250,
-        widthImage: 330,
-        marginTitle: EdgeInsets.only(top: 20),
+        heightImage: double.parse(widget.height) * 0.4,
+        //widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 50),
         title: "O que é o milagre da manhã?",
         styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
         description:
@@ -42,9 +44,9 @@ class _IntroSliderPageState
     slides.add(
       new Slide(
         maxLineTitle: 3,
-        heightImage: 250,
-        widthImage: 330,
-        marginTitle: EdgeInsets.only(top: 20),
+        heightImage: double.parse(widget.height) * 0.4,
+        //widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 50),
         title: "E como isso funciona na prática?",
         styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
         description:
@@ -56,9 +58,9 @@ class _IntroSliderPageState
     slides.add(
       new Slide(
         maxLineTitle: 3,
-        heightImage: 250,
-        widthImage: 330,
-        marginTitle: EdgeInsets.only(top: 20),
+        heightImage: double.parse(widget.height) * 0.4,
+        //widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 50),
         title: "E quais os benefícios?",
         styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
         description:
@@ -71,9 +73,9 @@ class _IntroSliderPageState
     slides.add(
       new Slide(
         maxLineTitle: 3,
-        heightImage: 250,
-        widthImage: 330,
-        marginTitle: EdgeInsets.only(top: 20),
+        heightImage: double.parse(widget.height) * 0.4,
+        //widthImage: 330,
+        marginTitle: EdgeInsets.only(top: 50),
         title: "Lembre-se!",
         styleDescription: GoogleFonts.yanoneKaffeesatz(color: Colors.white, fontSize: 25),
         description:

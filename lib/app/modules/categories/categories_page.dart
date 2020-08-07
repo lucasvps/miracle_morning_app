@@ -61,13 +61,13 @@ class _CategoriesPageState
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           AspectRatio(
-                              aspectRatio: 1.5,
+                              aspectRatio: 1.2,
                               child: SvgPicture.asset(
                                   'lib/app/assets/svg/void.svg')),
                           Center(
                               child: Text(
                             'Você já esta realizando o desafio de todos os hábitos! Mantenha o foco!',
-                            style: TextStyle(fontSize: 25),
+                            style: GoogleFonts.yanoneKaffeesatz(fontSize: 30, color: Colors.black),
                           )),
                         ],
                       ),
@@ -140,7 +140,7 @@ class _CategoriesPageState
                                       Center(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsets.only(top: 12.0),
+                                              const EdgeInsets.all(8.0),
                                           child: Container(
                                             width: MediaQuery.of(context)
                                                     .size

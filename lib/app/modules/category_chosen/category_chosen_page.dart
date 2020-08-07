@@ -63,13 +63,13 @@ class _CategoryChosenPageState
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           AspectRatio(
-                              aspectRatio: 1.5,
+                              aspectRatio: 1.2,
                               child: SvgPicture.asset(
                                   'lib/app/assets/svg/void.svg')),
                           Center(
                               child: Text(
                             'Você não está fazendo nenhum desafio! Vamos lá!',
-                            style: TextStyle(fontSize: 25),
+                            style: GoogleFonts.yanoneKaffeesatz(fontSize: 30, color: Colors.black),
                           )),
                         ],
                       ),
@@ -97,51 +97,9 @@ class _CategoryChosenPageState
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              15, 5, 16, 2),
-                                          child: Text(
-                                            "Início : " +
-                                                formatDate(
-                                                    DateFormat("yyyy-MM-dd")
-                                                        .parse(
-                                                      list[index].beginDate,
-                                                    ),
-                                                    [
-                                                      dd,
-                                                      '/',
-                                                      mm,
-                                                      '/',
-                                                      yyyy
-                                                    ]).toString(),
-                                            style: GoogleFonts.patrickHand(
-                                                fontSize: 22),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              15, 2, 16, 8),
-                                          child: Text(
-                                            "Final : " +
-                                                formatDate(
-                                                    DateFormat("yyyy-MM-dd")
-                                                        .parse(
-                                                      list[index].endDate,
-                                                    ),
-                                                    [
-                                                      dd,
-                                                      '/',
-                                                      mm,
-                                                      '/',
-                                                      yyyy
-                                                    ]).toString(),
-                                            style: GoogleFonts.patrickHand(
-                                                fontSize: 22),
-                                          ),
-                                        ),
                                         Center(
-                                          child: !controller.store.idDoneToday
-                                                  .contains(list[index].id)
+                                          child: list[index].lastDateMarked !=
+                                                  today
                                               ? Padding(
                                                   padding:
                                                       const EdgeInsets.fromLTRB(
@@ -181,9 +139,7 @@ class _CategoryChosenPageState
                                                                     fontSize:
                                                                         22),
                                                           )),
-                                                      SizedBox(
-                                                        width: 4,
-                                                      ),
+                                                      
                                                       Expanded(
                                                         child: Icon(
                                                           EvaIcons.sun,
@@ -200,9 +156,8 @@ class _CategoryChosenPageState
                                           padding: const EdgeInsets.all(10.0),
                                           child: Center(
                                             child:
-                                                !controller.store.idDoneToday
-                                                        .contains(
-                                                            list[index].id)
+                                                list[index].lastDateMarked !=
+                                                  today
                                                     ? Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment

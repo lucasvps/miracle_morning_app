@@ -138,25 +138,16 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Modular.to.pushNamed('/register');
                     },
-                    child: Card(
-                      shadowColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(60))),
-                      elevation: 5,
-                      child: Center(
-                          child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                            'Novo aqui ? Faça seu registro rapidamente!',
-                            style: GoogleFonts.lato(
-                                fontSize: 18,
-                                color:
-                                    AppThemeLight().getTheme().primaryColor)),
-                      )),
-                    ),
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Novo aqui ? Faça seu registro rapidamente!',
+                          style: GoogleFonts.lato(
+                              fontSize: 16, color: Colors.black)),
+                    )),
                   ),
                 )
               ],

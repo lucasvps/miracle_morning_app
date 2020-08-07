@@ -9,6 +9,7 @@ class CategoryChosenModel {
   String image;
   int catId;
   bool todayStatus;
+  String lastDateMarked;
 
   CategoryChosenModel(
       {this.amountDone,
@@ -18,7 +19,7 @@ class CategoryChosenModel {
       this.beginDate,
       this.endDate,
       this.description,
-      this.image, this.catId, this.todayStatus});
+      this.image, this.catId, this.todayStatus, this.lastDateMarked});
 
   CategoryChosenModel.fromJson(Map<String, dynamic> json) {
     amountDone = json['amountDone'];
@@ -30,6 +31,7 @@ class CategoryChosenModel {
     description = json['description'];
     image = json['image'];
     catId = json['cat_id'];
+    lastDateMarked = json['last_date_marked'];
   }
 
   Map<String, dynamic> toJson() {
@@ -43,6 +45,7 @@ class CategoryChosenModel {
     data['description'] = this.description;
     data['image'] = this.image;
     data['cat_id'] = this.catId;
+    data['last_date_marked'] = this.lastDateMarked;
     return data;
   }
 }

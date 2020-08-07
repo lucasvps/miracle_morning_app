@@ -10,7 +10,11 @@ class IntroSliderModule extends ChildModule {
 
   @override
   List<Router> get routers => [
-        Router(Modular.initialRoute, child: (_, args) => IntroSliderPage()),
+        Router('/:width/:height',
+            child: (_, args) => IntroSliderPage(
+                  width: args.params['width'],
+                  height: args.params['height'],
+                )),
       ];
 
   static Inject get to => Inject<IntroSliderModule>.of();

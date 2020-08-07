@@ -117,30 +117,30 @@ class _ChosenDetailsPageState
                                               color: Colors.black),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          "Quantidade Dias realizados : " +
-                                              Modular.get<ChosenDetailsStore>()
-                                                  .totalDone
-                                                  .toString(),
-                                          style: GoogleFonts.patrickHand(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          "Quantidade Dias não realizados : " +
-                                              Modular.get<ChosenDetailsStore>()
-                                                  .totalLost
-                                                  .toString(),
-                                          style: GoogleFonts.patrickHand(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ),
-                                      ),
+                                      // Padding(
+                                      //   padding: const EdgeInsets.all(8.0),
+                                      //   child: Text(
+                                      //     "Quantidade Dias realizados : " +
+                                      //         Modular.get<ChosenDetailsStore>()
+                                      //             .totalDone
+                                      //             .toString(),
+                                      //     style: GoogleFonts.patrickHand(
+                                      //         fontSize: 20,
+                                      //         color: Colors.black),
+                                      //   ),
+                                      // ),
+                                      // Padding(
+                                      //   padding: const EdgeInsets.all(8.0),
+                                      //   child: Text(
+                                      //     "Quantidade Dias não realizados : " +
+                                      //         Modular.get<ChosenDetailsStore>()
+                                      //             .totalLost
+                                      //             .toString(),
+                                      //     style: GoogleFonts.patrickHand(
+                                      //         fontSize: 20,
+                                      //         color: Colors.black),
+                                      //   ),
+                                      // ),
                                       Flexible(
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),

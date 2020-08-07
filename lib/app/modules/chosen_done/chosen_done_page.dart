@@ -67,13 +67,13 @@ class _ChosenDonePageState
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
                               AspectRatio(
-                                  aspectRatio: 1.5,
+                                  aspectRatio: 1.2,
                                   child: SvgPicture.asset(
                                       'lib/app/assets/svg/void.svg')),
                               Center(
                                   child: Text(
                                 'Você ainda não finalizou nenhum desafio de 30 dias. Mantenha o foco!',
-                                style: TextStyle(fontSize: 25),
+                                style: GoogleFonts.yanoneKaffeesatz(fontSize: 30, color: Colors.black),
                               )),
                             ],
                           ),
