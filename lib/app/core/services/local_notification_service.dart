@@ -10,7 +10,7 @@ class LocalNotificationService implements ILocalNotification {
   @override
   Future pushNotification() async {
     //print('works');
-    var time = Time(8, 0, 0);
+    var time = Time(12, 50, 0);
     // var scheduledNotificationDateTime =
     //     DateTime.now().add(Duration(seconds: 10));
 
@@ -35,9 +35,10 @@ class LocalNotificationService implements ILocalNotification {
         Modular.get<AuthStore>().userName != null
             ? 'Eiii, ' + Modular.get<AuthStore>().userName + "!"
             : "Eiii",
-        'Já realizou os ativadores do milagre da manhã hoje? Não se esqueça de marcar para manter seu progresso!',
+        'Não esqueça de manter seu progresso!',
         time,
         platformChannelSpecifics,
+
         payload: 'Default_Sound');
   }
 }

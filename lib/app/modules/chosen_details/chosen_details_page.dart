@@ -9,7 +9,6 @@ import 'package:miracle_morning_app/app/modules/category_detail/category_detail_
 import 'chosen_details_controller.dart';
 import 'package:intl/intl.dart';
 
-import 'chosen_details_store.dart';
 
 class ChosenDetailsPage extends StatefulWidget {
   final String title;
@@ -117,30 +116,6 @@ class _ChosenDetailsPageState
                                               color: Colors.black),
                                         ),
                                       ),
-                                      // Padding(
-                                      //   padding: const EdgeInsets.all(8.0),
-                                      //   child: Text(
-                                      //     "Quantidade Dias realizados : " +
-                                      //         Modular.get<ChosenDetailsStore>()
-                                      //             .totalDone
-                                      //             .toString(),
-                                      //     style: GoogleFonts.patrickHand(
-                                      //         fontSize: 20,
-                                      //         color: Colors.black),
-                                      //   ),
-                                      // ),
-                                      // Padding(
-                                      //   padding: const EdgeInsets.all(8.0),
-                                      //   child: Text(
-                                      //     "Quantidade Dias não realizados : " +
-                                      //         Modular.get<ChosenDetailsStore>()
-                                      //             .totalLost
-                                      //             .toString(),
-                                      //     style: GoogleFonts.patrickHand(
-                                      //         fontSize: 20,
-                                      //         color: Colors.black),
-                                      //   ),
-                                      // ),
                                       Flexible(
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
@@ -155,7 +130,7 @@ class _ChosenDetailsPageState
                                                 gridDelegate:
                                                     SliverGridDelegateWithFixedCrossAxisCount(
                                                         crossAxisCount: 4,
-                                                        childAspectRatio: 1.55),
+                                                        childAspectRatio: 1.35),
                                                 //scrollDirection: Axis.horizontal,
                                                 itemCount: snapshot.data.length,
                                                 itemBuilder: (context, index) {
@@ -166,25 +141,28 @@ class _ChosenDetailsPageState
                                                         const EdgeInsets.all(
                                                             8.0),
                                                     child: Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      //width: MediaQuery.of(context).size.width * 0.1,
+                                                      //height: 50,
                                                       child: Center(
-                                                        child: Text(
-                                                          formatDate(
-                                                              DateFormat(
-                                                                      "yyyy-MM-dd")
-                                                                  .parse(
-                                                                list[index]
-                                                                    .date,
-                                                              ),
-                                                              [
-                                                                dd,
-                                                                '/',
-                                                                mm,
-                                                              ]).toString(),
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Text(
+                                                            formatDate(
+                                                                DateFormat(
+                                                                        "yyyy-MM-dd")
+                                                                    .parse(
+                                                                  list[index]
+                                                                      .date,
+                                                                ),
+                                                                [
+                                                                  dd,
+                                                                  '/',
+                                                                  mm,
+                                                                ]).toString(),
+                                                            style: TextStyle(
+                                                                color:
+                                                                    Colors.white),
+                                                          ),
                                                         ),
                                                       ),
                                                       decoration: BoxDecoration(

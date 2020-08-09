@@ -69,7 +69,8 @@ class _CategoryChosenPageState
                           Center(
                               child: Text(
                             'Você não está fazendo nenhum desafio! Vamos lá!',
-                            style: GoogleFonts.yanoneKaffeesatz(fontSize: 30, color: Colors.black),
+                            style: GoogleFonts.yanoneKaffeesatz(
+                                fontSize: 30, color: Colors.black),
                           )),
                         ],
                       ),
@@ -87,7 +88,11 @@ class _CategoryChosenPageState
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(50))),
-                            color: Colors.white.withOpacity(0.9),
+                            color: AppThemeLight()
+                                .getTheme()
+                                .cardTheme
+                                .color
+                                .withOpacity(0.9),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
@@ -139,15 +144,6 @@ class _CategoryChosenPageState
                                                                     fontSize:
                                                                         22),
                                                           )),
-                                                      
-                                                      Expanded(
-                                                        child: Icon(
-                                                          EvaIcons.sun,
-                                                          color:
-                                                              Colors.deepOrange,
-                                                          size: 45,
-                                                        ),
-                                                      )
                                                     ],
                                                   ),
                                                 ),
@@ -155,126 +151,134 @@ class _CategoryChosenPageState
                                         Padding(
                                           padding: const EdgeInsets.all(10.0),
                                           child: Center(
-                                            child:
-                                                list[index].lastDateMarked !=
-                                                  today
-                                                    ? Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        children: <Widget>[
-                                                          Column(
-                                                            children: <Widget>[
-                                                              GestureDetector(
-                                                                onTap: () {
-                                                                  controller.store.markAsDone(
-                                                                      list[index]
-                                                                          .id,
-                                                                      formatDate(
-                                                                          DateFormat("yyyy-MM-dd").parse(DateTime.now().toString()), [
-                                                                        yyyy,
-                                                                        '-',
-                                                                        mm,
-                                                                        '-',
-                                                                        dd
-                                                                      ]).toString(),
-                                                                      true);
+                                            child: list[index].lastDateMarked !=
+                                                    today
+                                                ? Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: <Widget>[
+                                                    Column(
+                                                      children: <Widget>[
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            controller.store.markAsDone(
+                                                                list[index]
+                                                                    .id,
+                                                                formatDate(
+                                                                    DateFormat("yyyy-MM-dd")
+                                                                        .parse(DateTime.now().toString()),
+                                                                    [
+                                                                      yyyy,
+                                                                      '-',
+                                                                      mm,
+                                                                      '-',
+                                                                      dd
+                                                                    ]).toString(),
+                                                                true);
 
-                                                                  Future.delayed(Duration(
-                                                                          seconds:
-                                                                              1))
-                                                                      .then(
-                                                                          (value) {
-                                                                    if (today ==
-                                                                        list[index]
-                                                                            .endDate) {
-                                                                      Components.alert(
-                                                                          context,
-                                                                          'PARABÉNS!',
-                                                                          "Hoje foi o último dia do seu desafio de ${list[index].name}! Espero que tenha sido uma jornada valiosa, e espero te ver mais vezes aqui!");
-                                                                    }
-                                                                  });
-                                                                },
-                                                                child: Icon(
-                                                                  EvaIcons
-                                                                      .checkmarkCircle2Outline,
-                                                                  color: AppThemeLight()
-                                                                      .getTheme()
-                                                                      .primaryColor,
-                                                                  size: 64,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                'Fez hoje',
-                                                                style: GoogleFonts
-                                                                    .yanoneKaffeesatz(
-                                                                        fontSize:
-                                                                            16),
-                                                              )
-                                                            ],
+                                                            Future.delayed(Duration(
+                                                                    seconds:
+                                                                        1))
+                                                                .then(
+                                                                    (value) {
+                                                              if (today ==
+                                                                  list[index]
+                                                                      .endDate) {
+                                                                Components.alert(
+                                                                    context,
+                                                                    'PARABÉNS!',
+                                                                    "Hoje foi o último dia do seu desafio de ${list[index].name}! Espero que tenha sido uma jornada valiosa, e espero te ver mais vezes aqui!");
+                                                              }
+                                                            });
+                                                          },
+                                                          child: Icon(
+                                                            EvaIcons
+                                                                .checkmarkCircle2Outline,
+                                                            color: AppThemeLight()
+                                                                .getTheme()
+                                                                .primaryColor,
+                                                            size: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.12,
                                                           ),
-                                                          Column(
-                                                            children: <Widget>[
-                                                              GestureDetector(
-                                                                onTap: () {
-                                                                  controller.store.markAsDone(
-                                                                      list[index]
-                                                                          .id,
-                                                                      formatDate(
-                                                                          DateFormat("yyyy-MM-dd").parse(DateTime.now().toString()), [
-                                                                        yyyy,
-                                                                        '-',
-                                                                        mm,
-                                                                        '-',
-                                                                        dd
-                                                                      ]).toString(),
-                                                                      false);
+                                                        ),
+                                                        Text(
+                                                          'Fez hoje',
+                                                          style: GoogleFonts
+                                                              .yanoneKaffeesatz(
+                                                                  fontSize:
+                                                                      16),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      children: <Widget>[
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            controller.store.markAsDone(
+                                                                list[index]
+                                                                    .id,
+                                                                formatDate(
+                                                                    DateFormat("yyyy-MM-dd")
+                                                                        .parse(DateTime.now().toString()),
+                                                                    [
+                                                                      yyyy,
+                                                                      '-',
+                                                                      mm,
+                                                                      '-',
+                                                                      dd
+                                                                    ]).toString(),
+                                                                false);
 
-                                                                  Future.delayed(Duration(
-                                                                          seconds:
-                                                                              1))
-                                                                      .then(
-                                                                          (value) {
-                                                                    if (today ==
-                                                                        list[index]
-                                                                            .endDate) {
-                                                                      Components.alert(
-                                                                          context,
-                                                                          'PARABÉNS!',
-                                                                          "Hoje foi o último dia do seu desafio de ${list[index].name}! Espero que tenha sido uma jornada valiosa, e espero te ver mais vezes aqui!");
-                                                                    }
-                                                                  });
-                                                                },
-                                                                child: Icon(
-                                                                    EvaIcons
-                                                                        .closeCircleOutline,
-                                                                    color: Colors
-                                                                        .red,
-                                                                    size: 64),
-                                                              ),
-                                                              Text(
-                                                                'Não fez hoje',
-                                                                style: GoogleFonts
-                                                                    .yanoneKaffeesatz(
-                                                                        fontSize:
-                                                                            16),
-                                                              )
-                                                            ],
-                                                          )
-                                                        ],
-                                                      )
-                                                    : SizedBox(),
+                                                            Future.delayed(Duration(
+                                                                    seconds:
+                                                                        1))
+                                                                .then(
+                                                                    (value) {
+                                                              if (today ==
+                                                                  list[index]
+                                                                      .endDate) {
+                                                                Components.alert(
+                                                                    context,
+                                                                    'PARABÉNS!',
+                                                                    "Hoje foi o último dia do seu desafio de ${list[index].name}! Espero que tenha sido uma jornada valiosa, e espero te ver mais vezes aqui!");
+                                                              }
+                                                            });
+                                                          },
+                                                          child: Icon(
+                                                              EvaIcons
+                                                                  .closeCircleOutline,
+                                                              color: Colors
+                                                                  .red,
+                                                              size: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.12),
+                                                        ),
+                                                        Text(
+                                                          'Não fez hoje',
+                                                          style: GoogleFonts
+                                                              .yanoneKaffeesatz(
+                                                                  fontSize:
+                                                                      16),
+                                                        )
+                                                      ],
+                                                    )
+                                                  ],
+                                                )
+                                                : SizedBox(),
                                           ),
                                         ),
                                         Center(
                                           child: Padding(
                                             padding: const EdgeInsets.only(
                                                 top: 12.0),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.3,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
                                               child: RaisedButton(
                                                 color: Colors.yellow,
                                                 shape: RoundedRectangleBorder(

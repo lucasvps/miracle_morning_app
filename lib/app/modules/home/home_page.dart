@@ -68,7 +68,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
               Icon(EvaIcons.list, color: Colors.black),
             ]),
-        backgroundColor: Color(0xffb9d7d9),
+        backgroundColor: AppThemeLight().getTheme().backgroundColor,
         appBar: AppBar(
           actions: <Widget>[
             GestureDetector(
@@ -80,7 +80,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               child: Icon(EvaIcons.logOutOutline),
             )
           ],
-          backgroundColor: Color(0xff50B5BA),
+          backgroundColor: AppThemeLight().getTheme().primaryColor,
           title: Text('O milagre da manhã'),
           centerTitle: true,
         ),

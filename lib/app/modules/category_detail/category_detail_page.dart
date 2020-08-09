@@ -23,7 +23,7 @@ class _CategoryDetailPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffb9d7d9),
+      backgroundColor: AppThemeLight().getTheme().backgroundColor,
         appBar: AppBar(
           backgroundColor: AppThemeLight().getTheme().primaryColor,
           title: Text(

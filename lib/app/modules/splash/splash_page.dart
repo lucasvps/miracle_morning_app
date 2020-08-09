@@ -39,19 +39,15 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
+    return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          //Image.asset('lib/assets/images/reports.png'),
+          //Image.asset('lib/app/assets/images/rocket.png'),
           Center(
             child: CircularProgressIndicator(),
           )
         ],
-      ),
-    );
+      );
+    
   }
 }

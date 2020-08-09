@@ -91,10 +91,10 @@ class _IntroSliderPageState
   @override
   Widget build(BuildContext context) {
     return IntroSlider(
-      
       nameSkipBtn: "Pular",
-      nameNextBtn: "Próximo",
-      nameDoneBtn: "Começar",
+      nameNextBtn: "Next",
+      nameDoneBtn: "Go",
+      namePrevBtn: "Prev",
       slides: this.slides,
       onDonePress: () {
         Modular.to.pushNamedAndRemoveUntil('/home', ModalRoute.withName('/home'));

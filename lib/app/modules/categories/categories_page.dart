@@ -85,7 +85,7 @@ class _CategoriesPageState
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(50))),
-                            color: Colors.white.withOpacity(0.9),
+                            color: AppThemeLight().getTheme().cardTheme.color.withOpacity(0.9),
                             child: Row(
                               children: <Widget>[
                                 Expanded(
@@ -106,33 +106,27 @@ class _CategoriesPageState
                                         child: !controller.store.repository.idsChosen.contains(list[index].id) ? Padding(
                                           padding:
                                               const EdgeInsets.only(top: 12.0),
-                                          child: Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.3,
-                                            child: RaisedButton(
-                                              color: Colors.yellow,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(50))),
-                                              onPressed: () {
-                                                Components.startHabit(
-                                                    idCat: list[index].id,
-                                                    title: "Uhuuuuuu!!!",
-                                                    content:
-                                                        "É muito bom ver que você está se desafiando a mais um hábito do Milagre da Manhã! Serão 30 dias que irão mudar sua vida!\n\n A data final será $finalDate.",
-                                                    context: context,
-                                                    negative: "Cancelar",
-                                                    positive: "Iniciar");
-                                              },
-                                              child: Text(
-                                                'Iniciar Hábito',
-                                                style: GoogleFonts.lato(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 14),
-                                              ),
+                                          child: RaisedButton(
+                                            color: Colors.yellow,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.all(
+                                                        Radius.circular(50))),
+                                            onPressed: () {
+                                              Components.startHabit(
+                                                  idCat: list[index].id,
+                                                  title: "Uhuuuuuu!!!",
+                                                  content:
+                                                      "É muito bom ver que você está se desafiando a mais um hábito do Milagre da Manhã! Serão 30 dias que irão mudar sua vida!\n\n A data final será $finalDate.",
+                                                  context: context,
+                                                  negative: "Cancelar",
+                                                  positive: "Iniciar");
+                                            },
+                                            child: Text(
+                                              'Iniciar Hábito',
+                                              style: GoogleFonts.lato(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14),
                                             ),
                                           ),
                                         ) : SizedBox(),
@@ -141,35 +135,29 @@ class _CategoriesPageState
                                         child: Padding(
                                           padding:
                                               const EdgeInsets.all(8.0),
-                                          child: Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.3,
-                                            child: RaisedButton(
-                                              color: AppThemeLight()
-                                                  .getTheme()
-                                                  .primaryColor,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(50))),
-                                              onPressed: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          CategoryDetailPage(
-                                                              model:
-                                                                  list[index])),
-                                                );
-                                              },
-                                              child: Text(
-                                                'Ver sobre',
-                                                style: GoogleFonts.lato(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 14),
-                                              ),
+                                          child: RaisedButton(
+                                            color: AppThemeLight()
+                                                .getTheme()
+                                                .primaryColor,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.all(
+                                                        Radius.circular(50))),
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        CategoryDetailPage(
+                                                            model:
+                                                                list[index])),
+                                              );
+                                            },
+                                            child: Text(
+                                              'Ver sobre',
+                                              style: GoogleFonts.lato(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14),
                                             ),
                                           ),
                                         ),

@@ -51,10 +51,12 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
                   child: TextField(
                     onChanged: controller.loginStore.setEmail,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.zero,
                         prefixIcon: Icon(Icons.email),
                         labelText: "Email",
+                        
                         errorText: controller.validateEmail(),
                         errorStyle: TextStyle(
                             color: Colors.redAccent,

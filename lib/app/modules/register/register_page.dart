@@ -21,10 +21,8 @@ class _RegisterPageState
     extends ModularState<RegisterPage, RegisterController> {
   //use 'controller' variable to access controller
 
-
   @override
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -67,6 +65,7 @@ class _RegisterPageState
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
                   child: TextField(
                     onChanged: controller.store.setEmail,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.zero,
                         prefixIcon: Icon(EvaIcons.email),
@@ -143,17 +142,22 @@ class _RegisterPageState
                       onPressed: controller.store.isRegisterValid
                           ? () {
                               var registerUser = UserModel(
-                                name: controller.store.name,
+                                  name: controller.store.name,
                                   email: controller.store.email,
                                   password: controller.store.password);
 
-                              controller.store.authRepository.register(registerUser).then((value) {
+                              controller.store.authRepository
+                                  .register(registerUser)
+                                  .then((value) {
                                 Components.onLoading(context);
                                 Future.delayed(new Duration(seconds: 3), () {})
                                     .then((value) {
                                   Navigator.pop(context);
-                                  Modular.to.pushNamedAndRemoveUntil('/slides/$width/$height', ModalRoute.withName('/slides'));
-                                  controller.localNotification.pushNotification();
+                                  Modular.to.pushNamedAndRemoveUntil(
+                                      '/slides/$width/$height',
+                                      ModalRoute.withName('/slides'));
+                                  controller.localNotification
+                                      .pushNotification();
                                 });
                               }).catchError((err) {
                                 Components.onLoading(context);
