@@ -1,16 +1,31 @@
-# miracle_morning_app
+# The Miracle Morning - 30 Day Challenge
 
-A new Flutter project.
+This project was made as a side-project to increase my skills as a flutter mobile developer and to create 
+something that could help people stay motivated when you're talking about change.
 
-## Getting Started
+The app is based on the 30-day challenge found on the "The Miracle Morning" book from Hal Elrod.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## What you can do?
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+In this app you can choose which habit do you wanna start for the next 30 days.
+You can read about the habit and why it is benefitial.
+You can set if you did or not the habit each day.
+You can see your progress in the challenge.
+You can take an random motivacional quote.
+You can see your habits records.
+You can read some examples about afirmations before you sleep.
+You will receive notifications every day to remeber you to keep your progress.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies
+
+In this app I use MobX to manage the state, and as a dependecy injector I opt for the Flutter Modular package.
+The backend was made with Laravel. You can find [here](https://github.com/lucasvps/miracle-morning-api).
+
+## Design
+
+<img src='lib/readme/login.jpeg' heigth='300' width='250'> <img src='lib/readme/registro.jpeg' heigth='300' width='250'>
+<img src='lib/readme/categories.jpeg' heigth='300' width='250'> <img src='lib/readme/category-details.jpeg' heigth='300' width='250'>
+<img src='lib/readme/chosen.jpeg' heigth='300' width='250'> <img src='lib/readme/chosen-details.jpeg' heigth='300' width='250'>
+<img src='lib/readme/quotes.jpeg' heigth='300' width='250'> <img src='lib/readme/all-done.jpeg' heigth='300' width='250'>
+<img src='lib/readme/push-notification.jpeg' heigth='300' width='250'> <img src='lib/readme/mmgif.gif' heigth='300' width='250'>
