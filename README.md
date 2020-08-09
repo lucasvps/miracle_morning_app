@@ -24,8 +24,8 @@ The backend was made with Laravel. You can find [here](https://github.com/lucasv
 
 ## Design
 
-<img src='lib/readme/mmgif.gif' heigth='300' width='250'> <img src='lib/readme/login.jpeg' heigth='300' width='250'> 
-<img src='lib/readme/registro.jpeg' heigth='300' width='250'> <img src='lib/readme/categories.jpeg' heigth='300' width='250'> 
+<img src='lib/readme/login.jpeg' heigth='300' width='250'> <img src='lib/readme/registro.jpeg' heigth='300' width='250'> 
+<img src='lib/readme/mmgif.gif' heigth='300' width='250'> <img src='lib/readme/categories.jpeg' heigth='300' width='250'> 
 <img src='lib/readme/category-details.jpeg' heigth='300' width='250'> <img src='lib/readme/chosen.jpeg' heigth='300' width='250'> 
 <img src='lib/readme/chosen-details.jpeg' heigth='300' width='250'> <img src='lib/readme/quotes.jpeg' heigth='300' width='250'> 
 <img src='lib/readme/all-done.jpeg' heigth='300' width='250'> <img src='lib/readme/push-notification.jpeg' heigth='300' width='250'> 
