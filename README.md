@@ -8,14 +8,14 @@ The app is based on the 30-day challenge found on the "The Miracle Morning" book
 
 ## What you can do?
 
-In this app you can choose which habit do you wanna start for the next 30 days.
-You can read about the habit and why it is benefitial.
-You can set if you did or not the habit each day.
-You can see your progress in the challenge.
-You can receive an random motivacional quote.
-You can see your habits records.
-You can read some examples about afirmations before you sleep.
-You will receive notifications every day to remeber you to keep your progress.
+- In this app you can choose which habit do you wanna start for the next 30 days.
+- You can read about the habit and why it is benefitial.
+- You can set if you did or not the habit each day.
+- You can see your progress in the challenge.
+- You can receive an random motivacional quote.
+- You can see your habits records.
+- You can read some examples about afirmations before you sleep.
+- You will receive notifications every day to remeber you to keep your progress.
 
 ## Technologies
 
